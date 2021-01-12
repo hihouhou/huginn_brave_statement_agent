@@ -214,7 +214,7 @@ module Agents
               create_event payload: tx
             end
           else
-            last_status = memory['last_status'].gsub("=>", ": ").gsub(": nil,", ": null,")
+            last_status = memory['last_status'].gsub("=>", ": ").gsub(": nil", ": null")
             last_status = JSON.parse(last_status)
             payload['overviews'].each do |tx|
               found = false
@@ -222,7 +222,7 @@ module Agents
                 log "tx"
                 log tx
               end
-              last_status['result'].each do |txbis|
+              last_status['overviews'].each do |txbis|
                 if tx == txbis
                   found = true
                 end
