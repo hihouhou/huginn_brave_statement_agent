@@ -12,7 +12,7 @@ module Agents
 
       `changes_only` is only used to emit event about a card's change.
 
-      `csrf_token` / `cfduid` / `publishers_session` / `pk_id` are needed for the cooki.
+      `csrf_token` / `publishers_session` / `pk_id` are needed for the cooki.
 
       `debug` is used to verbose mode.
 
@@ -181,7 +181,7 @@ module Agents
       request["Authority"] = "publishers.basicattentiontoken.org"
       request["Accept"] = "application/json"
       request["X-Csrf-Token"] = "#{interpolated['csrf_token']}"
-      request["User-Agent"] = "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/87.0.4280.101 Safari/537.36"
+      request["User-Agent"] = "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/91.0.4472.106 Safari/537.36"
       request["X-Requested-With"] = "XMLHttpRequest"
       request["Sec-Gpc"] = "1"
       request["Sec-Fetch-Site"] = "same-origin"
@@ -189,7 +189,7 @@ module Agents
       request["Sec-Fetch-Dest"] = "empty"
       request["Referer"] = "https://publishers.basicattentiontoken.org/publishers/statements?locale=en"
       request["Accept-Language"] = "fr,en-US;q=0.9,en;q=0.8"
-      request["Cookie"] = "_publishers_session=#{interpolated['publishers_session']}; _pk_testcookie..undefined=1; __cfduid=#{interpolated['cfduid']}; _pk_ses.6.8f93=1; _pk_id.6.8f93=#{interpolated['pk_id']}"
+      request["Cookie"] = "_pk_testcookie..undefined=1; _pk_id.6.8f93=#{interpolated['pk_id']}; _pk_ses.6.8f93=1; _publishers_session=#{interpolated['publishers_session']}"
       
       req_options = {
         use_ssl: uri.scheme == "https",
