@@ -118,7 +118,6 @@ module Agents
     def default_options
       {
         'csrf_token' => '',
-        'cfduid' => '',
         'publishers_session' => '',
         'pk_id' => '',
         'expected_receive_period_in_days' => '31',
@@ -129,7 +128,6 @@ module Agents
 
     form_configurable :expected_receive_period_in_days, type: :string
     form_configurable :csrf_token, type: :string
-    form_configurable :cfduid, type: :string
     form_configurable :publishers_session, type: :string
     form_configurable :pk_id, type: :string
     form_configurable :changes_only, type: :boolean
