@@ -138,10 +138,6 @@ module Agents
         errors.add(:base, "csrf_token is a required field")
       end
 
-      unless options['cfduid'].present?
-        errors.add(:base, "cfduid is a required field")
-      end
-
       unless options['publishers_session'].present?
         errors.add(:base, "publishers_session is a required field")
       end
