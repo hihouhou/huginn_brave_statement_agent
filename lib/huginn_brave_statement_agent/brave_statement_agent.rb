@@ -23,96 +23,97 @@ module Agents
 
     event_description <<-MD
       Events look like this:
-        {
-          "publisherId": "XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX",
-          "name": "XXXXXX",
-          "email": "XXXXXXXXXXXXXXXXXX",
-          "settledTransactions": [
-            {
-              "channel": "XXXXXXXX",
-              "description": "settlement fees",
-              "transactionType": "fees",
-              "amount": "XXXX",
-              "settlementCurrency": null,
-              "settlementAmount": null,
-              "settlementDestinationType": null,
-              "settlementDestination": null,
-              "createdAt": "2020-12-09",
-              "errors": null
+
+          {
+            "publisherId": "XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX",
+            "name": "XXXXXX",
+            "email": "XXXXXXXXXXXXXXXXXX",
+            "settledTransactions": [
+              {
+                "channel": "XXXXXXXX",
+                "description": "settlement fees",
+                "transactionType": "fees",
+                "amount": "XXXX",
+                "settlementCurrency": null,
+                "settlementAmount": null,
+                "settlementDestinationType": null,
+                "settlementDestination": null,
+                "createdAt": "2020-12-09",
+                "errors": null
+              },
+              {
+                "channel": "XXXXXXXX",
+                "description": "payout for contribution",
+                "transactionType": "contribution_settlement",
+                "amount": "XXXX",
+                "settlementCurrency": "BAT",
+                "settlementAmount": "XXXX",
+                "settlementDestinationType": "uphold",
+                "settlementDestination": "XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX",
+                "createdAt": "2020-12-09",
+                "errors": null
+              }
+            ],
+            "totalEarned": "XXXX",
+            "totals": {
+              "contributionSettlement": "XXXX",
+              "fees": "XXX",
+              "referralSettlement": 0,
+              "totalBraveSettled": "XXXX",
+              "upholdContributionSettlement": 0
             },
-            {
-              "channel": "XXXXXXXX",
-              "description": "payout for contribution",
-              "transactionType": "contribution_settlement",
-              "amount": "XXXX",
-              "settlementCurrency": "BAT",
-              "settlementAmount": "XXXX",
-              "settlementDestinationType": "uphold",
-              "settlementDestination": "XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX",
-              "createdAt": "2020-12-09",
-              "errors": null
-            }
-          ],
-          "totalEarned": "XXXX",
-          "totals": {
-            "contributionSettlement": "XXXX",
-            "fees": "XXX",
-            "referralSettlement": 0,
-            "totalBraveSettled": "XXXX",
-            "upholdContributionSettlement": 0
-          },
-          "batTotalDeposited": "XXXX",
-          "deposited": {
-            "BAT": "XXXX"
-          },
-          "depositedTypes": {
-            "bAT": {
-              "contributionSettlement": "XXXX"
-            }
-          },
-          "paymentDate": "2020-12-09",
-          "earningPeriod": {
-            "startDate": "2020-11-01",
-            "endDate": "2020-12-09"
-          },
-          "settlementDestination": "XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX",
-          "details": [
-            {
-              "title": "Brave Settled Contributions",
-              "description": "The total amount of contributions paid through Brave managed systems, including auto-contribute and custodial wallets.  5% fee is applied to support Brave Rewards and infrastructure costs.",
-              "amount": "XXXX",
-              "transactions": [
-                {
-                  "channel": "XXXXXXXX",
-                  "description": "payout for contribution",
-                  "transactionType": "contribution_settlement",
-                  "amount": "XXXX",
-                  "settlementCurrency": "BAT",
-                  "settlementAmount": "XXXX",
-                  "settlementDestinationType": "uphold",
-                  "settlementDestination": "XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX",
-                  "createdAt": "2020-12-09",
-                  "errors": null
-                },
-                {
-                  "channel": "XXXXXXXX",
-                  "description": "settlement fees",
-                  "transactionType": "fees",
-                  "amount": "XXXX",
-                  "settlementCurrency": null,
-                  "settlementAmount": null,
-                  "settlementDestinationType": null,
-                  "settlementDestination": null,
-                  "createdAt": "2020-12-09",
-                  "errors": null
-                }
-              ],
-              "type": "contribution_settlement"
-            }
-          ],
-          "isOpen": false,
-          "showRateCards": true
-        }
+            "batTotalDeposited": "XXXX",
+            "deposited": {
+              "BAT": "XXXX"
+            },
+            "depositedTypes": {
+              "bAT": {
+                "contributionSettlement": "XXXX"
+              }
+            },
+            "paymentDate": "2020-12-09",
+            "earningPeriod": {
+              "startDate": "2020-11-01",
+              "endDate": "2020-12-09"
+            },
+            "settlementDestination": "XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX",
+            "details": [
+              {
+                "title": "Brave Settled Contributions",
+                "description": "The total amount of contributions paid through Brave managed systems, including auto-contribute and custodial wallets.  5% fee is applied to support Brave Rewards and infrastructure costs.",
+                "amount": "XXXX",
+                "transactions": [
+                  {
+                    "channel": "XXXXXXXX",
+                    "description": "payout for contribution",
+                    "transactionType": "contribution_settlement",
+                    "amount": "XXXX",
+                    "settlementCurrency": "BAT",
+                    "settlementAmount": "XXXX",
+                    "settlementDestinationType": "uphold",
+                    "settlementDestination": "XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX",
+                    "createdAt": "2020-12-09",
+                    "errors": null
+                  },
+                  {
+                    "channel": "XXXXXXXX",
+                    "description": "settlement fees",
+                    "transactionType": "fees",
+                    "amount": "XXXX",
+                    "settlementCurrency": null,
+                    "settlementAmount": null,
+                    "settlementDestinationType": null,
+                    "settlementDestination": null,
+                    "createdAt": "2020-12-09",
+                    "errors": null
+                  }
+                ],
+                "type": "contribution_settlement"
+              }
+            ],
+            "isOpen": false,
+            "showRateCards": true
+          }
     MD
 
     def default_options
