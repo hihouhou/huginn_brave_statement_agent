@@ -218,7 +218,7 @@ module Agents
                 log tx
               end
               last_status['overviews'].each do |txbis|
-                if tx == txbis
+                if tx['paymentDate'] == txbis['paymentDate']
                   found = true
                 end
                 if interpolated['debug'] == 'true'
