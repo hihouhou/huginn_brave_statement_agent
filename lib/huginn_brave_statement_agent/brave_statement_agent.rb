@@ -4,7 +4,7 @@ module Agents
 
     can_dry_run!
     no_bulk_receive!
-    default_schedule '12h'
+    default_schedule 'every_1d'
 
     description do
       <<-MD
