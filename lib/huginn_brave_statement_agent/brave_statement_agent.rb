@@ -171,7 +171,7 @@ module Agents
     private
 
     def fetch
-      uri = URI.parse("https://publishers.basicattentiontoken.org/publishers/statements?id=undefined")
+      uri = URI.parse("https://publishers.basicattentiontoken.org/publishers/wallet/latest")
       request = Net::HTTP::Get.new(uri)
       request["Authority"] = "publishers.basicattentiontoken.org"
       request["Accept"] = "application/json"
@@ -205,35 +205,12 @@ module Agents
       if interpolated['changes_only'] == 'true'
         if payload.to_s != memory['last_status']
           if "#{memory['last_status']}" == ''
-            payload['overviews'].each do |tx|
-              create_event payload: tx
-            end
+            create_event payload: payload
           else
             last_status = memory['last_status'].gsub("=>", ": ").gsub(": nil", ": null")
             last_status = JSON.parse(last_status)
-            payload['overviews'].each do |tx|
-              found = false
-              if interpolated['debug'] == 'true'
-                log "tx"
-                log tx
-              end
-              last_status['overviews'].each do |txbis|
-                if tx['paymentDate'] == txbis['paymentDate']
-                  found = true
-                end
-                if interpolated['debug'] == 'true'
-                  log "txbis"
-                  log txbis
-                  log "found is #{found}!"
-                end
-              end
-              if found == false
-                if interpolated['debug'] == 'true'
-                  log "found is #{found}! so event created"
-                  log tx
-                end
-                create_event payload: tx
-              end
+            if payload['lastSettlement']['timestamp'] != last_status['lastSettlement']['timestamp']
+              create_event payload: payload
             end
           end
           memory['last_status'] = payload.to_s
